@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    android:background="@drawable/background">
+    android:background="@color/colorPrimary">
+
+
+
 
 
     <ImageView
 
-        android:id="@+id/googleIcon"
         android:layout_width="388dp"
         android:layout_height="279dp"
         android:layout_alignParentTop="true"

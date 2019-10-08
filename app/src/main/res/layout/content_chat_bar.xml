@@ -38,7 +38,8 @@
             android:paddingTop="4dp"
             app:srcCompat="@drawable/chatbot_send_btn"
             android:layout_alignParentRight="true"
-            tools:ignore="VectorDrawableCompat" />
+            tools:ignore="VectorDrawableCompat"
+            android:background="@drawable/img"/>
 
         <EditText
             android:id="@+id/queryEditText"
@@ -51,7 +52,8 @@
             android:paddingTop="4dp"
             android:textSize="18sp"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/sendBtn" />
+            android:layout_toLeftOf="@+id/sendBtn"
+            android:background="@drawable/edittextcurve"/>
 
     </RelativeLayout>
 
