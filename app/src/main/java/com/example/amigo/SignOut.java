@@ -39,22 +39,16 @@ public class SignOut extends AppCompatActivity implements GoogleApiClient.OnConn
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
 
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
-                        new ResultCallback<Status>() {
-                            @Override
-                            public void onResult(Status status) {
-                                if (status.isSuccess()){
-                                    gotoMainActivity();
-                                }else{
-                                    Toast.makeText(getApplicationContext(),"Session not close",Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-            }
+        logoutBtn.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+                    status -> {
+                        if (status.isSuccess()){
+                            gotoMainActivity();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Session not close",Toast.LENGTH_LONG).show();
+                        }
+                    });
         });
 
     }

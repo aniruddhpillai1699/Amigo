@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,10 +18,8 @@ import com.google.android.gms.common.ConnectionResult;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.android.gms.common.api.Status;
+
 
 
 public class MyAccount extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
@@ -36,8 +33,7 @@ public class MyAccount extends AppCompatActivity implements GoogleApiClient.OnCo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
-
-        logoutBtn = findViewById(R.id.logoutBtn);
+            logoutBtn = findViewById(R.id.logoutBtn);
         userName = findViewById(R.id.name);
         userEmail = findViewById(R.id.email);
         profileImage = findViewById(R.id.profileImage);
@@ -52,22 +48,16 @@ public class MyAccount extends AppCompatActivity implements GoogleApiClient.OnCo
                 .build();
 
 
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
-                        new ResultCallback<Status>() {
-                            @Override
-                            public void onResult(Status status) {
-                                if (status.isSuccess()) {
-                                    gotoMainActivity();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Session not close", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-            }
+        logoutBtn.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+                    status -> {
+                        if (status.isSuccess()) {
+                            gotoMainActivity();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Session not close", Toast.LENGTH_LONG).show();
+                        }
+                    });
         });
     }
 
@@ -79,12 +69,7 @@ public class MyAccount extends AppCompatActivity implements GoogleApiClient.OnCo
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
         } else {
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
-                    handleSignInResult(googleSignInResult);
-                }
-            });
+            opr.setResultCallback(googleSignInResult -> handleSignInResult(googleSignInResult));
         }
     }
 
@@ -114,4 +99,5 @@ public class MyAccount extends AppCompatActivity implements GoogleApiClient.OnCo
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
 }

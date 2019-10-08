@@ -39,7 +39,7 @@
             app:srcCompat="@drawable/chatbot_send_btn"
             android:layout_alignParentRight="true"
             tools:ignore="VectorDrawableCompat"
-            android:background="@drawable/img"/>
+            />
 
         <EditText
             android:id="@+id/queryEditText"
@@ -48,7 +48,7 @@
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/sendBtn"
             android:imeOptions="actionSend"
-            android:inputType="text"
+            android:inputType="textCapWords"
             android:paddingTop="4dp"
             android:textSize="18sp"
             android:layout_alignParentLeft="true"

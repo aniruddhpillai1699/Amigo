@@ -9,17 +9,13 @@
             android:icon="@drawable/ic_phone_book"
             android:title="@string/menu_MyAccount" />
 
+        <item
+            android:id="@+id/nav_About"
+            android:icon="@drawable/ic_information"
+            android:title="@string/menu_About" />
+
     </group>
 
-    <item android:title="Communicate">
-        <menu>
 
-            <item
-                android:id="@+id/nav_About"
-                android:icon="@drawable/ic_information"
-                android:title="@string/menu_About" />
-
-        </menu>
-    </item>
 
 </menu>
