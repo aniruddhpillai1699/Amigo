@@ -51,9 +51,9 @@
             android:inputType="textCapWords"
             android:paddingTop="4dp"
             android:textSize="18sp"
+            android:hint="Type a message.."
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/sendBtn"
-            android:background="@drawable/edittextcurve"/>
+            android:layout_toLeftOf="@+id/sendBtn"/>
 
     </RelativeLayout>
 

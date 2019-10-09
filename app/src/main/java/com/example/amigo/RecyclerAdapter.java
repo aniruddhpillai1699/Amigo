@@ -16,7 +16,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
             "Aniruddh Suresh Pillai"};
 
     private String[] details = {"Passion + Perseverance == Persistence + Perfection",
-            "", "Smart. Strong. Silly. Straight up class act.",
+            "Embrace reality even if it burns you :)", "Smart. Strong. Silly. Straight up class act.",
             "I speak less because I know there are very few who likes to listen "};
 
     private int[] images = { R.drawable.purush,
